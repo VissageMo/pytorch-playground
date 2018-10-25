@@ -49,10 +49,12 @@ def load_pickle(path):
     print("=> Done ({:.4f} s)".format(time.time() - begin_st))
     return v
 
+
 def dump_pickle(obj, path):
     with open(path, 'wb') as f:
         print("Dumping pickle object to {}".format(path))
         pkl.dump(obj, f, protocol=pkl.HIGHEST_PROTOCOL)
+
 
 def auto_select_gpu(mem_bound=500, utility_bound=0, gpus=(0, 1, 2, 3, 4, 5, 6, 7), num_gpu=1, selected_gpus=None):
     import sys

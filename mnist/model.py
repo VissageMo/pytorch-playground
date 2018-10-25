@@ -35,6 +35,7 @@ class MLP(nn.Module):
         assert input.size(1) == self.input_dims
         return self.model.forward(input)
 
+
 def mnist(input_dims=784, n_hiddens=[256, 256], n_class=10, pretrained=None):
     model = MLP(input_dims, n_hiddens, n_class)
     if pretrained is not None:

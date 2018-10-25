@@ -30,8 +30,8 @@ misc.logger.init(args.logdir, 'train_log')
 print = misc.logger.info
 
 # select gpu
-args.gpu = misc.auto_select_gpu(utility_bound=0, num_gpu=args.ngpu, selected_gpus=args.gpu)
-args.ngpu = len(args.gpu)
+# args.gpu = misc.auto_select_gpu(utility_bound=0, num_gpu=args.ngpu, selected_gpus=args.gpu)
+# args.ngpu = len(args.gpu)
 
 # logger
 misc.ensure_dir(args.logdir)
@@ -109,7 +109,7 @@ try:
                 pred = output.data.max(1)[1]  # get the index of the max log-probability
                 correct += pred.cpu().eq(indx_target).sum()
 
-            test_loss = test_loss / len(test_loader) # average over number of mini-batch
+            test_loss = test_loss / len(test_loader)  # average over number of mini-batch
             acc = 100. * correct / len(test_loader.dataset)
             print('\tTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)'.format(
                 test_loss, correct, len(test_loader.dataset), acc))

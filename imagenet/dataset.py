@@ -16,6 +16,7 @@ def get(batch_size, data_root='/tmp/public_dataset/pytorch', train=False, val=Tr
     ds = ds[0] if len(ds) == 1 else ds
     return ds
 
+
 class IMAGENET(object):
     def __init__(self, root, batch_size, train=False, input_size=224, **kwargs):
         self.mean = np.array([0.485, 0.456, 0.406]).reshape(1, 1, 1, 3)
@@ -54,6 +55,7 @@ class IMAGENET(object):
             target = self.data_dict['target'][self.idx*self.batch_size:(self.idx+1)*self.batch_size]
             self.idx += 1
             return img, target
+
 
 if __name__ == '__main__':
     train_ds, val_ds = get(200)

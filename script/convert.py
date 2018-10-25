@@ -25,12 +25,12 @@ for img, target in tqdm.tqdm(zip(d['data'], d['target']), total=50000):
     data224.append(img224)
     data299.append(img299)
 data_dict224 = dict(
-    data = np.array(data224).transpose(0, 3, 1, 2),
-    target = d['target']
+    data=np.array(data224).transpose(0, 3, 1, 2),
+    target=d['target']
 )
 data_dict299 = dict(
-    data = np.array(data299).transpose(0, 3, 1, 2),
-    target = d['target']
+    data=np.array(data299).transpose(0, 3, 1, 2),
+    target=d['target']
 )
 
 if not os.path.exists(args.out_root):
